@@ -1,34 +1,43 @@
-print ('Petr Lorenc')
-print ("Petr" *10)
-print ("Petr Lorenc"[-2])
-print ("Petr Lorenc"[2])
-print ("Petr Lorenc"[6:8])
-len ("Petr Lorenc")
+# print ('Petr Lorenc')
+# print ("Petr" *10)
+# print ("Petr Lorenc"[-2])
+# print ("Petr Lorenc"[2])
+# print ("Petr Lorenc"[6:8])
+# len ("Petr Lorenc")
 
 
-jmeno="Zuzana"
-vek = 31
+# jmeno="Zuzana"
+# vek = 31
 
-print (jmeno,vek)
+# print (jmeno,vek)
 
-# i když vidíš zadané číslo na výstupu, je to datový typ string
-cislo = input("Zadej číslo:")
-print("Bylo zadané číslo:", cislo)
+# # i když vidíš zadané číslo na výstupu, je to datový typ string
+# cislo = input("Zadej číslo:")
+# print("Bylo zadané číslo:", cislo)
 
-# jestli je výstup funkce input string si můžeš ověřit
-print(type(cislo))
+# # jestli je výstup funkce input string si můžeš ověřit
+# print(type(cislo))
 
-print ("Zaciname gitovat")
+# print ("Zaciname gitovat")
 
-list1=[1,2,3,4,5]
+# list1=[1,2,3,4,5]
 
-dictionary={"one":1}
+# dictionary={"one":1}
 
-print("Hello World")
+# print("Hello World")
 
-print ("Provedli jsme zmeny")
+# print ("Provedli jsme zmeny")
 
-print ("Pridal jsem dalsi print")
+# print ("Pridal jsem dalsi print")
 
+# print ("Projekt 1")
 
-print ("Projekt 1")
+jmeno="Lukáš"
+prijmeni="Dvořák"
+cele_jmeno=(jmeno+ " "+ prijmeni)
+delka_jmena=len(cele_jmeno)
+print ("Celé jméno:", cele_jmeno)
+print ("Délka jména:", delka_jmena)
+print ("="*delka_jmena)
+print (cele_jmeno)
+print ("="*delka_jmena)
