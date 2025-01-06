@@ -12,19 +12,19 @@
 
 #------------------------------------------
 
-# #zapiš proměnné
-# jmeno = 'Marek'
-# heslo = '1234'
-# uzivatel = {'Marek': '1234'}
+#zapiš proměnné
+jmeno = 'Marek'
+heslo = '1234'
+uzivatel = {'Marek': '1234'}
 
-# #zapiš podmínku, která zkontroluje, jestli se hodnoty v proměnných jmeno a heslo shodují s klíčem a hodnotou ve slovníku uzivatel
-# if uzivatel.get(jmeno) == heslo:
-# # ... pokud SOUHLASÍ, přivítej uživatele jménem
-#     print ('Ahoj ', jmeno, 'vítej v aplikaci! Pokračuj...')
+#zapiš podmínku, která zkontroluje, jestli se hodnoty v proměnných jmeno a heslo shodují s klíčem a hodnotou ve slovníku uzivatel
+if uzivatel.get(jmeno) == heslo:
+# ... pokud SOUHLASÍ, přivítej uživatele jménem
+    print ('Ahoj ', jmeno, 'vítej v aplikaci! Pokračuj...')
 
-# #pokud nesouhlasí, upozorni uživatele o omylu
-# else:
-#     print ('Uživatelské jméno nebo heslo nejsou v pořádku')
+#pokud nesouhlasí, upozorni uživatele o omylu
+else:
+    print ('Uživatelské jméno nebo heslo nejsou v pořádku')
 
 
 #-------------------------------------------------------
@@ -44,15 +44,15 @@
 
 #---------------------------------------------------------
 
-cisla_1 = {1, 2, 3, 4}
-cisla_2 = {3, 4, 5, 6}
+# cisla_1 = {1, 2, 3, 4}
+# cisla_2 = {3, 4, 5, 6}
 
-#vytvoř ze zadaných proměnných sety
-set_1=set(cisla_1)
-set_2=set(cisla_2)
+# #vytvoř ze zadaných proměnných sety
+# set_1=set(cisla_1)
+# set_2=set(cisla_2)
 
-#zjistí jaké hodnoty prvního setu jsou rozdílné oproti setu druhému a uloží hodnoty do proměnné rozdil_cisel
-rozdil_cisel=set_1.difference(set_2)
+# #zjistí jaké hodnoty prvního setu jsou rozdílné oproti setu druhému a uloží hodnoty do proměnné rozdil_cisel
+# rozdil_cisel=set_1.difference(set_2)
 
-#vypíše výsledek s ohlášením
-print ("Rozdílné hodnoty prvního setu oproti druhému:",rozdil_cisel)
+# #vypíše výsledek s ohlášením
+# print ("Rozdílné hodnoty prvního setu oproti druhému:",rozdil_cisel)
