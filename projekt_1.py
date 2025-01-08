@@ -41,63 +41,86 @@ users = {
     "liz": "pass123"
 }
 
-username=input("username: ") #input user
-password=input("password: ") #input password
+#user inpu
+username=input("username: ")
+password=input("password: ")
 
-dash_lenght=len("Enter a number btw. 1 and 3 to select: x") #dash lenght
+#maximum number of characters for dash length
+dash_lenght=len("Enter a number btw. 1 and 3 to select: x")
 
-if username in users and users[username] == password: #enabling access
-    print("-" * dash_lenght) #dash
-    print("Welcome to the app, ",username,) #welcome user
-    print("We have 3 texts to be analyzed.") #welcome user
-    print("-" * dash_lenght) #dash
-    text_nr=input("Enter a number btw. 1 and 3 to select:") #text selection
-    if text_nr.isdigit(): #calculation
+#enabling access for registered users and user welcome
+if username in users and users[username] == password:
+    print("-" * dash_lenght)
+    print("Welcome to the app, ",username,)
+    print("We have 3 texts to be analyzed.")
+    print("-" * dash_lenght)
+   
+#text selection 1-3
+    text_nr=input("Enter a number btw. 1 and 3 to select:")
+    if text_nr.isdigit():
         if 1 <= int(text_nr) <= 3:
-            print("-" * dash_lenght) #dash
-            words=(TEXTS[int(text_nr)-1].split()) #words split
-            words_count = len(words) #number of words in the selected text
-            print("There are ",words_count, " words in the selected text.") #print
-            titlecase_count = sum(1 for word in words if word[0].isupper()) #number of words with title case
-            print("There are ",titlecase_count, " titlecase words.") #print
-            uppercase_count= sum(1 for word in words if word.isupper() #number of words with upper case
+
+# Remove unwanted characters and split the text
+            words=(TEXTS[int(text_nr)-1].split())
+            clean_words=[item.replace(",", "").replace(".","").replace("/n","").replace(" ","") for item in words]
+                       
+#number of words in the selected text
+            words_count = len(clean_words)
+            
+#number of words with title case            
+            titlecase_count = sum(1 for word in clean_words if word[0].isupper()) 
+
+ #number of words with upper case           
+            uppercase_count= sum(1 for word in clean_words if word.isupper() 
                                 and not any(char.isdigit() for char in word))
-            print("There are ",uppercase_count, " uppercase words.") #print
-            lowercase_count= sum(1 for word in words if word.islower()) #number of words with lower case
-            print("There are ",lowercase_count, " lowercase words.") #print
-            digit_count= sum(1 for word in words if word.isdigit()) #number of digits
-            print("There are ",digit_count, " numeric strings.") #print
-            sum_numbers=sum([int(word) for word in words if word.isdigit()]) #sum of all numbers
-            print ("The sum of all the numbers ",sum_numbers) #print
-            print("-" * dash_lenght) #dash
-            print("{:>3}|".format("LEN"),"{:^12}".format("OCCURENCES"),"|NR") #print chart title
-            print("-" * dash_lenght) #dash
-            words_lenght = {slovo: len(slovo) for slovo in words} #délka slov
-            len1=sum(1 for word, lenght in words_lenght.items() if len(word)==1) #number of words with lenght 1
-            print("{:>3}|".format("1"),"{:<12}".format("*"*len1),"|",len1) #print
-            len2=sum(1 for word, lenght in words_lenght.items() if len(word)==2) #number of words with lenght 2
-            print("{:>3}|".format("2"),"{:<12}".format("*"*len2),"|",len2) #print
-            len3=sum(1 for word, lenght in words_lenght.items() if len(word)==3) #number of words with lenght 3
-            print("{:>3}|".format("3"),"{:<12}".format("*"*len3),"|",len3) #print
-            len4=sum(1 for word, lenght in words_lenght.items() if len(word)==4) #number of words with lenght 4
-            print("{:>3}|".format("4"),"{:<12}".format("*"*len4),"|",len4) #print
-            len5=sum(1 for word, lenght in words_lenght.items() if len(word)==5) #number of words with lenght 5
-            print("{:>3}|".format("5"),"{:<12}".format("*"*len5),"|",len5) #print
-            len6=sum(1 for word, lenght in words_lenght.items() if len(word)==6) #number of words with lenght 6
-            print("{:>3}|".format("6"),"{:<12}".format("*"*len6),"|",len6) #print
-            len7=sum(1 for word, lenght in words_lenght.items() if len(word)==7) #number of words with lenght 7
-            print("{:>3}|".format("7"),"{:<12}".format("*"*len7),"|",len7) #print
-            len8=sum(1 for word, lenght in words_lenght.items() if len(word)==8) #number of words with lenght 8
-            print("{:>3}|".format("8"),"{:<12}".format("*"*len8),"|",len8) #print
-            len9=sum(1 for word, lenght in words_lenght.items() if len(word)==9) #number of words with lenght 9
-            print("{:>3}|".format("9"),"{:<12}".format("*"*len9),"|",len9) #print
-            len10=sum(1 for word, lenght in words_lenght.items() if len(word)==10) #number of words with lenght 10
-            print("{:>3}|".format("10"),"{:<12}".format("*"*len10),"|",len10) #print
-            len11=sum(1 for word, lenght in words_lenght.items() if len(word)==11) #number of words with lenght 11
-            print("{:>3}|".format("11"),"{:<12}".format("*"*len11),"|",len11) #print
+
+#number of words with lower case            
+            lowercase_count= sum(1 for word in clean_words if word.islower()) 
+
+#number of digits
+            digit_count= sum(1 for word in clean_words if word.isdigit()) 
+            
+#sum of all numbers            
+            sum_numbers=sum([int(word) for word in clean_words if word.isdigit()]) 
+            
+#print results 
+            print("-" * dash_lenght)
+            print("There are ",words_count, " words in the selected text.")
+            print("There are ",titlecase_count, " titlecase words.")
+            print("There are ",uppercase_count, " uppercase words.")
+            print("There are ",lowercase_count, " lowercase words.")
+            print("There are ",digit_count, " numeric strings.")
+            print ("The sum of all the numbers ",sum_numbers)
+            print("-" * dash_lenght)
+            
+#count the length of words and the number of words of a given length            
+            dict_word_len = {}
+            for word in clean_words:
+                word_length = len(word)
+                if word_length in dict_word_len:
+                    dict_word_len[word_length] += 1
+                else:
+                    dict_word_len[word_length] = 1
+                continue
+#sorted dictionairy
+            sorted_dict = {key:dict_word_len[key] for key in sorted(dict_word_len)}
+
+#print bar chart header
+            print("{:>3}|".format("LEN"),"{:^20}".format("OCCURENCES"),"|NR")
+            print("-" * dash_lenght)
+
+# Print the rows of the table - number of words with define lenght
+            for key, value in sorted_dict.items():
+                print("{:>3}|".format(f"{key}"),"{:<20}".format("*"*int(f"{value}")),"|",f"{value}")
+    
+#input selected text is not between 1-3, terminating the program        
         else:
-            print("your input is not btw. 1 and 3, terminating the program") #terminating the program
+            print("your input is not btw. 1 and 3, terminating the program")
+
+#input selected text is not a number, terminating the program   
     else:
-        print("your input is not a number, terminating the program") #terminating the program
+        print("your input is not a number, terminating the program")
+
+#user is not registered, terminating the program
 else:
-    print("unregistered user, terminating the program.") #terminating the program
+    print("unregistered user, terminating the program.")
